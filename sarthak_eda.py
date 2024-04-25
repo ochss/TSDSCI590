@@ -12,8 +12,8 @@ from statsmodels.tsa.stattools import acf, pacf,adfuller
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 
 FEAT_OFF=0 # Value if you want to calculate features (do not need to change as already caclulatted and uploaded on github)
-DATA_NEW="data/delhi_aqi_new.csv" # change with your path
-DATA_OLD="data/delhi_aqi.csv" # change with your path
+DATA_NEW="../data/delhi_aqi_new.csv" # change with your path
+DATA_OLD="../data/delhi_aqi.csv" # change with your path
 
 """
 Utility Functions
