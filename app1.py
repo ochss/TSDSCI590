@@ -129,7 +129,7 @@ def showPred():
         
         elif options=='SARIMAX':
             print(test_df)
-            pred=model.forecast(steps=30)
+            pred=model.forecast(steps=duration)
             fig,axs=plt.subplots()
             axs.plot(train_df['pm2_5'])
             plt.plot(pred,label='prediction')
