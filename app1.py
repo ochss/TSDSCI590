@@ -50,9 +50,27 @@ with st.sidebar:
 
 @st.cache_resource
 def load_model(*args):
-    if 'nbeats_model.pt' in glob.glob('*.pt'):
-        return NBEATSModel.load(path='nbeats_model.pt')
+    option=args[0]
 
+    if option=='Naive Mean':
+        if 'naivemean_model.pkl' in glob.glob('*.pkl'):
+            model=NaiveMean.load(path='naivemean_model.pkl')
+
+
+
+    elif option=='NBEATS':
+        if 'nbeats_model.pt' in glob.glob('*.pt'):
+            model=NBEATSModel.load(path='nbeats_model.pt')
+
+    elif option=='SARIMAX':
+        if "final_sarimax_model.pkl" in glob.glob('*.pkl'):
+            with open('final_sarimax_model.pkl','rb') as f:
+                model=pickle.load(f,encoding='utf-8')
+
+    else:
+        model=None
+
+    return model
         
 
 #creating a correlation plot with two variables and a hue variable
