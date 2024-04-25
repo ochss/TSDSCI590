@@ -128,6 +128,7 @@ def showPred():
             st.pyplot(fig)
         
         elif options=='SARIMAX':
+            print("TESTTTTTTTTTTTTTTTTTTTTTTTTT_000000000000000000000")
             print(test_df)
             pred=model.forecast(steps=duration)
             fig,axs=plt.subplots()
