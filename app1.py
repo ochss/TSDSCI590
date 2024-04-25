@@ -51,7 +51,7 @@ with st.sidebar:
 @st.cache_resource
 def load_model(*args):
     if 'nbeats_model.pt' in glob.glob('*.pt'):
-        return model=NBEATSModel.load(path='nbeats_model.pt')
+        return NBEATSModel.load(path='nbeats_model.pt')
 
         
 
