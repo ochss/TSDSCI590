@@ -110,9 +110,7 @@ def showPred():
         st.pyplot(fig)    
     
     else:
-        #model=load_model(options)
-
-        model = NBEATSModel.load(path='nbeats_model.pt')
+        model=load_model(options)
         pred=model.predict(duration)
 
         if options=='NBEATS':
