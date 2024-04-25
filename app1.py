@@ -51,6 +51,7 @@ with st.sidebar:
 @st.cache_resource
 def load_model(*args):
     option=args[0]
+    print(option)
 
     if option=='Naive Mean':
         if 'naivemean_model.pkl' in glob.glob('*.pkl'):
