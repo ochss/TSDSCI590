@@ -53,6 +53,8 @@ def load_model(*args):
     option=args[0]
     print(option)
 
+    model = None
+
     if option=='Naive Mean':
         if 'naivemean_model.pkl' in glob.glob('*.pkl'):
             model=NaiveMean.load(path='naivemean_model.pkl')
