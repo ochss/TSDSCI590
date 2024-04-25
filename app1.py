@@ -53,19 +53,14 @@ def load_model(*args):
     option=args[0]
 
     if option=='Naive Mean':
-        if 'naivemean_model.pkl' in glob.glob('*.pkl'):
-            model=NaiveMean.load(path='naivemean_model.pkl')
-
-
+        model=NaiveMean.load(path='naivemean_model.pkl')
 
     elif option=='NBEATS':
-        if 'nbeats_model.pt' in glob.glob('*.pt'):
-            model=NBEATSModel.load(path='nbeats_model.pt')
+        model=NBEATSModel.load(path='nbeats_model.pt')
 
     elif option=='SARIMAX':
-        if "final_sarimax_model.pkl" in glob.glob('*.pkl'):
-            with open('final_sarimax_model.pkl','rb') as f:
-                model=pickle.load(f,encoding='utf-8')
+        with open('final_sarimax_model.pkl','rb') as f:
+            model=pickle.load(f,encoding='utf-8')
 
     else:
         model=None
@@ -130,10 +125,12 @@ def showPred():
         elif options=='SARIMAX':
             print("TESTTTTTTTTTTTTTTTTTTTTTTTTT_000000000000000000000")
             print(test_df)
-            pred=model.forecast(steps=duration)
+            pred=model.get_forecast(steps=duration)
+            forecast_mean = pred.predicted_mean
+            print(forecast_mean)
             fig,axs=plt.subplots()
             axs.plot(train_df['pm2_5'])
-            plt.plot(pred,label='prediction')
+            plt.plot(forecast_mean,label='prediction')
             axs.set_ylabel('pm 2.5 level')
             plt.legend()
             st.pyplot(fig)
