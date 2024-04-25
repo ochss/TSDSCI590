@@ -3,4 +3,3 @@ pandas
 darts
 numpy
 seaborn
-pickle
